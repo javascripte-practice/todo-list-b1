@@ -1,15 +1,17 @@
 import Card from "../../helper/Card/Card";
 import styles from "./List.module.css";
 
-const List = ({ todos, updateHandler, deleteHandler }) => {
+const List = ({ users, deleteHandler }) => {
   return (
     <Card>
       <ul className={styles.list}>
-        {todos?.length > 0 ? (
-          todos.map((t) => {
+        {users?.length > 0 ? (
+          users.map((u) => {
             return (
-              <li key={t?.id}>
-                <span>{t?.todo}</span>
+              <li key={u?.id}>
+                <span>{u?.firstName}</span>
+                <span>{u?.lastName}</span>
+                <span>{u?.age}</span>
                 <span
                   style={{
                     display: "flex",
@@ -20,14 +22,7 @@ const List = ({ todos, updateHandler, deleteHandler }) => {
                   <button
                     type="button"
                     className={styles["btn"]}
-                    onClick={updateHandler.bind(null, t?.id)}
-                  >
-                    etid
-                  </button>
-                  <button
-                    type="button"
-                    className={styles["btn"]}
-                    onClick={deleteHandler.bind(null, t?.id)}
+                    onClick={deleteHandler.bind(null, u?.id)}
                   >
                     delete
                   </button>

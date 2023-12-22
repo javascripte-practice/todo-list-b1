@@ -5,35 +5,21 @@ import List from "./components/UI/List/List";
 import Form from "./components/UI/Form/Form";
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  const [isUpdate, setIsUpdate] = useState(false);
-
-  const updateHandler = (id) => {
-    // location.href = location.href + id;
-    console.log(id);
-
-    // const value = todos?.filter((t) => t?.id === id)[0];
-    // setChangeTodoInput(value?.todo);
-    // setIsUpdate(value);
-  };
+  const [users, setUsers] = useState([]);
 
   const deleteHandler = (id) => {
-    setTodos((todos) => {
-      return todos?.filter((t) => t?.id !== id);
+    setUsers((users) => {
+      return users?.filter((u) => u?.id !== id);
     });
   };
 
   return (
     <>
       <Card back-color={"blue"}>
-        <h1>Todo List</h1>
+        <h1>Users List</h1>
       </Card>
-      <Form setTodos={setTodos} />
-      <List
-        todos={todos}
-        updateHandler={updateHandler}
-        deleteHandler={deleteHandler}
-      />
+      <Form setUsers={setUsers} />
+      <List users={users} deleteHandler={deleteHandler} />
     </>
   );
 }
